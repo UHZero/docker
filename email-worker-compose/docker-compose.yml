@@ -14,7 +14,7 @@ services:
     networks:
       - banco
     environment:
-      - POSTGRES_PASSWORD="postgres"
+      - POSTGRES_HOST_AUTH_METHOD=trust
   frontend:
     image: nginx:1.13
     volumes:
