@@ -4,4 +4,6 @@ docker-compose up -d // execulta os containers em modo daemon
 docker-compose down -v // para e remove os volumes dos containers
 docker-compose log -f -t // inicia o log dos containers ativos
 docker-compose exec db psql -U postgres -f /scripts/check.sql // execulta o banco de dados atraves do script setado
-
+docker-compose up -d --scale worker=3 // escala determinado container para executar n serviços
+docker-container logs -f -t worker // logs do container worker
+docker-compose exec db psql -U postgres -d email_sender -c 'select * from emails' // acessa o banco de dados
